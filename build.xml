@@ -26,6 +26,10 @@
         <path refid="Calculator.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
+    <path id="run.AllTests (4).classpath">
+        <path refid="Calculator.classpath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
     <path id="run.Calculator (1).classpath">
         <path refid="Calculator.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
@@ -38,7 +42,11 @@
         <path refid="Calculator.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
-    <path id="run.AllTests (4).classpath">
+    <path id="run.AddTest (1).classpath">
+        <path refid="Calculator.classpath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
+    <path id="run.Tests.classpath">
         <path refid="Calculator.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
@@ -114,6 +122,15 @@
             <classpath refid="run.AllTests (2).classpath"/>
         </junit>
     </target>
+    <target name="AllTests (4)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="AllTests" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.AllTests (4).classpath"/>
+        </junit>
+    </target>
     <target name="Calculator (1)">
         <java classname="calculator.Calculator" failonerror="true" fork="yes">
             <classpath refid="run.Calculator (1).classpath"/>
@@ -133,13 +150,22 @@
             <classpath refid="run.DivTest.classpath"/>
         </junit>
     </target>
-    <target name="AllTests (4)">
+    <target name="AddTest (1)">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="AllTests" todir="${junit.output.dir}"/>
+            <test name="AddTest" todir="${junit.output.dir}"/>
             <jvmarg line="-ea"/>
-            <classpath refid="run.AllTests (4).classpath"/>
+            <classpath refid="run.AddTest (1).classpath"/>
+        </junit>
+    </target>
+    <target name="Tests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Tests" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.Tests.classpath"/>
         </junit>
     </target>
     <target name="junitreport">
