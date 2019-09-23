@@ -26,6 +26,10 @@
         <path refid="Calculator.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
+    <path id="run.Calculator (1).classpath">
+        <path refid="Calculator.classpath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
     <path id="run.Calculator.classpath">
         <path refid="Calculator.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
@@ -34,11 +38,30 @@
         <path refid="Calculator.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
+    <path id="run.AllTests (4).classpath">
+        <path refid="Calculator.classpath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="test">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir=".">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+                <exclude name="src/"/>
+                <exclude name="test/"/>
             </fileset>
         </copy>
     </target>
@@ -52,6 +75,10 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
+            <src path="test"/>
+            <src path="."/>
+            <exclude name="src/"/>
+            <exclude name="test/"/>
             <classpath refid="Calculator.classpath"/>
         </javac>
     </target>
@@ -87,6 +114,11 @@
             <classpath refid="run.AllTests (2).classpath"/>
         </junit>
     </target>
+    <target name="Calculator (1)">
+        <java classname="calculator.Calculator" failonerror="true" fork="yes">
+            <classpath refid="run.Calculator (1).classpath"/>
+        </java>
+    </target>
     <target name="Calculator">
         <java classname="calculator.Calculator" failonerror="true" fork="yes">
             <classpath refid="run.Calculator.classpath"/>
@@ -99,6 +131,15 @@
             <test name="calculator.DivTest" todir="${junit.output.dir}"/>
             <jvmarg line="-ea"/>
             <classpath refid="run.DivTest.classpath"/>
+        </junit>
+    </target>
+    <target name="AllTests (4)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="AllTests" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.AllTests (4).classpath"/>
         </junit>
     </target>
     <target name="junitreport">

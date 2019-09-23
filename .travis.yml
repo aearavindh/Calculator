@@ -2,4 +2,4 @@ language: java
 jdk:
  - oraclejdk11
  - oraclejdk12
-script: ant AllTests
+script: ant AllTests (2)
