@@ -2,9 +2,5 @@ language: java
 jdk:
  - oraclejdk11
  - oraclejdk12
-script:
- - ant build
- - cd src/calculator
- - java AllTests.java
-
+script: ant test
 
