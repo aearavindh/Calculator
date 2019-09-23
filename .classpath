@@ -10,5 +10,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="E:/My Files/Eclipse Projects/Calculator/lib/junit.jar"/>
 	<classpathentry kind="lib" path="E:/My Files/Eclipse Projects/Calculator/lib/org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
+	<classpathentry kind="lib" path="E:/My Files/Eclipse Projects/Calculator/lib/ant-junit-1.9.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
