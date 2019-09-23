@@ -3,8 +3,8 @@ jdk:
  - oraclejdk11
  - oraclejdk12
 before_script:
- - cd src/calculator
-script: ant build
+ - ant build
+script: cd src/calculator
 after_script:
  - java AllTests.java
 
