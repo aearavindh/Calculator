@@ -2,4 +2,10 @@ language: java
 jdk:
  - oraclejdk11
  - oraclejdk12
-script: ant test
+before_script:
+ - cd Calculator
+script: ant build
+after_script:
+ - java AllTests.java
+
+
