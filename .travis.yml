@@ -2,4 +2,4 @@ language: java
 jdk:
  - oraclejdk11
  - oraclejdk12
-script: ant Tests
+script: ant -lib /lib/ant-junit-1.9.2.jar/ Tests
